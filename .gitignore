@@ -1,0 +1,11 @@
+./frontend/node_modules
+./backend/node_modules
+./frontend/.env
+./backend/.env
+./my-lz-oapp/node_modules
+./my-lz-oapp/.env
+./my-lz-oapp/.env.local
+./my-lz-oapp/.env.development
+./my-lz-oapp/.env.production
+./my-lz-oapp/.env.test
+./my-lz-oapp/.env.staging
