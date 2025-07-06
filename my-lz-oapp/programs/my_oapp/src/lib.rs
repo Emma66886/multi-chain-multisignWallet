@@ -16,7 +16,7 @@ use state::*;
 // MYOAPP_ID=$PROGRAM_ID anchor build 
 declare_id!(anchor_lang::solana_program::pubkey::Pubkey::new_from_array(program_id_from_env!(
     "MYOAPP_ID",
-    "41NCdrEvXhQ4mZgyJkmqYxL6A1uEmnraGj31UJ6PsXd3" // It's not necessary to change the ID here if you are building using environment variable
+    "G3CAYKc3b2WDshEqtGGArr8JEaL5wu3zQzWwEtyPyNUW" // It's not necessary to change the ID here if you are building using environment variable
 )));
 
 const LZ_RECEIVE_TYPES_SEED: &[u8] = b"LzReceiveTypes"; // The Executor relies on this exact seed to derive the LzReceiveTypes PDA. Keep it the same.
@@ -51,6 +51,9 @@ pub mod my_oapp {
     // public instruction to send a message to a cross-chain peer.
     pub fn create_wallet(mut ctx:Context<CreateNewWallet>, params: CreateWalletParams) -> Result<()> {
         CreateNewWallet::apply(&mut ctx, &params)
+    }
+    pub fn send_tx(mut ctx:Context<SendTransaction>, params: SendTransactionParams) -> Result<()> {
+        SendTransaction::apply(&mut ctx, &params)
     }
 
     pub fn send(mut ctx: Context<Send>, params: SendMessageParams) -> Result<()> {

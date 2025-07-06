@@ -72,6 +72,10 @@ contract MyOApp is OApp, OAppOptionsType3 {
         bytes calldata /*_extraData*/
     ) internal override {
         string memory stringValue = StringMsgCodec.decode(payload);
+        if (bytes(stringValue).length == 0) {
+            revert("Invalid string value length");
+        }
+
         data = stringValue;
     }
 }
